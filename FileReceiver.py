@@ -5,6 +5,9 @@ import os
 ##code (I have no clue what to call this)##
 app = Flask(__name__)
 
+upload_folder = 'uploads'
+os.makedirs(upload_folder, exist_ok=True)
+
 @app.route('/upload', methods=['POST'])
 def upload_files():
     if 'file' not in request.files:
@@ -12,7 +15,7 @@ def upload_files():
     file = request.files['file']
     if file.filename == '':
         return  'No selected file', 400
-    file.save(os.path.join('uploads', file.filename))
+    file.save(os.path.join(upload_folder, file.filename))
     return 'File uploaded successfully', 400
 
 if __name__ == '__main__':

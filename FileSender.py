@@ -1,7 +1,7 @@
 ##imports##
 import requests
 
-url = 'https://192.168.209.115:5000/upload'
+url = 'http://192.168.209.115:5000/upload'
 file_path = input("Path to the sending file: ")
 
 with open(file_path, 'rb') as f:
